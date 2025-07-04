@@ -1,11 +1,17 @@
 <div class="container">
   <app-toolbar class="toolbar"></app-toolbar>
   <app-navbar class="navbar"></app-navbar>
-  <div class="content" *ngIf="!loading">
-         <app-student 
+  <div class="content" *ngIf="!loading; else loadingTemplate">
+
+         <app-student
          *ngFor="let student of students"
          [student]="student"/>
 
      </div>
+  <ng-template #loadingTemplate>
+    <p>Cargando estudiantes...</p>
+  </ng-template>
      
 </div>
+
+

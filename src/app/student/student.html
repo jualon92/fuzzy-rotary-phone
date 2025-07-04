@@ -6,4 +6,9 @@
     <h3>{{ student.name | uppercase }}</h3>
     <p>Edad: {{ student.age | number }} años</p>
     <p>Fecha nacimiento: {{ student.birthDate | date:'dd/MM/yyyy' }}</p>
+    <p>Promedio: 
+      <span [ngClass]="{'text-success': student.average >= 6, 'text-danger': student.average < 6}">
+        {{ student.average | number}}
+      </span>
+    </p>
   </div>

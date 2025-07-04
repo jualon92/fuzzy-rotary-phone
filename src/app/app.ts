@@ -4,7 +4,7 @@ import { Navbar } from './navbar/navbar';
 import { Toolbar } from './toolbar/toolbar';
 import { SharedModule } from './shared/shared-module';
 import { CommonModule } from '@angular/common';
-import {  Student as StudentComponent } from './student/student';
+import {  StudentComponent } from './student/student';
 import { PerfilUsuario } from './perfil-usuario/perfil-usuario';
  import { Student } from './student/entities';
 import { STUDENTS_MOCK } from '../assets/mocks/students.mock';
