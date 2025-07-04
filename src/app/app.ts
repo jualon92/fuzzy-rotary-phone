@@ -4,13 +4,11 @@ import { Navbar } from './navbar/navbar';
 import { Toolbar } from './toolbar/toolbar';
 import { SharedModule } from './shared/shared-module';
 import { CommonModule } from '@angular/common';
-import { Student as StudentComponent } from './student/student';
+import {  Student as StudentComponent } from './student/student';
 import { PerfilUsuario } from './perfil-usuario/perfil-usuario';
-
-export interface Student{
-   name: string;
-   age: number;
-}
+ import { Student } from './student/entities';
+import { STUDENTS_MOCK } from '../assets/mocks/students.mock';
+ 
 @Component({
   selector: 'app-root',
   imports: [SharedModule, StudentComponent, Navbar,Toolbar],
@@ -21,6 +19,7 @@ export class App implements OnInit {
   // Propiedad para controlar el estado de carga
   loading =  false 
   students: Student[] = []; // Lista de estudiantes
+
   // Tiempo de espera para simular la carga de datos
   readonly TIMEOUT = 2000; 
 
@@ -29,21 +28,18 @@ export class App implements OnInit {
     // Simulamos una carga de datos
     this.loading = true;
     setTimeout(() => {
-      this.students = [
-        { name: 'Ana', age: 22 },
-        { name: 'Luis', age: 21 }
-      ]
+      this.students =  STUDENTS_MOCK; // Asignamos los datos simulados
       this.loading = false;
-    }, this.TIMEOUT); // Simula una carga de 2 segundos
+    }, this.TIMEOUT); // carga tarda 2 segundos
   }
 
-  // Este método se ejecuta cuando el componente se inicializa
+  //  se ejecuta cuando el componente se inicializa
   ngOnInit() {
       
   }
 
   trackByStudentId(index: number, student: Student): number {
-    return index; // Aquí puedes usar un identificador único si lo tienes
+    return index; //  usar un identificador único para evitar rerenderizados innecesarios
   }
 
 }

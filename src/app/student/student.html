@@ -2,6 +2,8 @@
 
 
   <div>
-    <h3>{{ student.name }}</h3>
-    <p>Edad: {{ student.age }} años</p>
+
+    <h3>{{ student.name | uppercase }}</h3>
+    <p>Edad: {{ student.age | number }} años</p>
+    <p>Fecha nacimiento: {{ student.birthDate | date:'dd/MM/yyyy' }}</p>
   </div>
