@@ -9,12 +9,16 @@
 
 .toolbar {
   grid-area: toolbar;
+  border: 2px blue solid;
 }
 
 .navbar {
   grid-area: navbar;
+  border: 2px green solid;
+
 }
 
 .content {
   grid-area: content;
+  
 }
